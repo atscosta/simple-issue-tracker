@@ -31,7 +31,6 @@ public class IssueService {
 
         Issue issue = convertToEntity(issueDto);
         this.issueRepository.save(issue);
-
     }
 
     private Issue convertToEntity(IssueDto issueDto) {

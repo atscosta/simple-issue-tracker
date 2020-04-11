@@ -1,12 +1,16 @@
 package com.alyssontiberio.sit.issue.type;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Data
-@Entity
 @Table(name = "tb_type")
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Type {
 
     @Id
@@ -14,4 +18,5 @@ public class Type {
     private Integer id;
 
     private String description;
+
 }

@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("priorities")
 @RequiredArgsConstructor
-public class PriorityController {
+class PriorityController {
 
     private final PriorityService priorityService;
 

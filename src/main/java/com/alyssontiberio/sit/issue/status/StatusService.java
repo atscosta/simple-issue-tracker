@@ -1,5 +1,6 @@
 package com.alyssontiberio.sit.issue.status;
 
+import com.alyssontiberio.sit.issue.ResourceNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,12 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class StatusService {
 
+    public static final String NEW = "New";
+    public static final String CONFIRMED = "Confirmed";
+    public static final String RESOLVED = "Resolved";
+    public static final String CLOSED = "Closed";
+    public static final String REOPENED = "Reopened";
+
     private final StatusRepository statusRepository;
 
     @Cacheable("statusList")
@@ -22,8 +29,9 @@ public class StatusService {
     }
 
     public Status findByDescription(String description) {
-        return this.statusRepository.findByDescription(description)
-                .orElseThrow(NoResultException::new);
+        return this.statusRepository
+                .findByDescription(description)
+                .orElseThrow(ResourceNotFoundException::new);
 
     }
 }
